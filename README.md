@@ -1,5 +1,12 @@
 ## 设计模式学习
 ### 单例设计模式
+
+常见的单例模式应用
+
+* `java.lang.Runtime`
+* `org.springframework.aop.framework.ProxyFactoryBean`
+* `org.apache.catalina.webresources.TomcatURLStreamHandlerFactory`
+
 #### 饿汉式
 
 类加载的初始化阶段就完成了实例的初始化，本质上就是借助于JVM类加载机制，保证实例的唯一性即线程安全
@@ -21,4 +28,18 @@
 
 * 防御反射攻击：由于枚举类都隐式继承Enum抽象类，而该类没有**无参构造器**，且在反射创建对象时会校验是否是枚举类型
 * 防御序列化攻击：ObjectInputStream类中，对枚举类型有一个专门的readEnum()方法来处理，防御也是通过JDK内部实现
-## 设计模式应用
+
+### 策略模式
+
+可以将算法的实现细节与使用它的代码隔离开来，符合开闭原则
+
+> 应用场景
+
+1. 当你有很多类似的类，但它们执行某些行为的方式不同时
+2. 使用该模式将类的业务逻辑与算法的实现细节隔离开，这些算法在逻辑上下文中可能不那么重要
+3. 当你的类具有大量的条件运算符，并且在同一算法的不同变体之间切换时
+
+> 常见应用
+
+* `java.util.Comparator`
+* `org.springframework.beans.factory.support.InstantiationStrategy`
