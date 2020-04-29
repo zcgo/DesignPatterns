@@ -43,3 +43,43 @@
 
 * `java.util.Comparator`
 * `org.springframework.beans.factory.support.InstantiationStrategy`
+
+### 工厂方法模式
+
+定义一个用于创建对象的接口，让子类决定实例化哪一个类，FactoryMethod使得一个类的实例化延迟到子类
+
+> 应用场景
+
+* 不确定该使用对象的确切类型时
+* 希望为库或框架提供扩展其内部组件的方法时
+
+> 优点
+
+* 将具体产品和创建者解耦，如ProductA和如ConcreteProductACreater
+* 符合单一职责原则，如ConcreteProductACreater
+* 符合开闭原则，对于扩展开发，对于修改关闭
+
+> 常见应用
+
+* `Calendar.getInstance()`
+* `java.text.NumberFormat.getInstance()`
+
+### 抽象工厂模式
+
+提供一个创建一系列相关或相互依赖对象的接口，而无需指定它们具体的类
+
+> 应用场景
+
+* 需要处理**不同系列**的相关产品，但不希望依赖于这些产品的具体类时
+
+> 优点
+
+* 可以确信从工厂得到的产品彼此兼容
+* 可以避免具体产品和创建者解耦
+* 符合单一职责原则
+* 符合开闭原则
+
+> 常见应用
+
+* `java.sql.Connection`
+* `java.sql.Driver`
